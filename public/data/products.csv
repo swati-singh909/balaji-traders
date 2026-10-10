@@ -1,0 +1,9 @@
+category,brand,model,ah,price,exchange_price,warranty_months,image,show,highlight,sort,note
+inverter,Epic Power,Tall Tubular,150,11500,,,epic-power-tall-tubular.webp,yes,yes,1,
+inverter,Epic Power,Tall Tubular,180,12500,,,epic-power-tall-tubular.webp,yes,yes,1,
+inverter,Epic Power,Tall Tubular,200,13000,,,epic-power-tall-tubular.webp,yes,yes,1,
+inverter,Epic Power,Tall Tubular,260,14000,,,epic-power-tall-tubular.webp,yes,yes,1,
+inverter,Epic Power,Tall Tubular,300,14500,,,epic-power-tall-tubular.webp,yes,yes,1,
+inverter,Enerziq,EQ-22060TT Tall Tubular,,,,60,enerziq-tall-tubular.webp,yes,,2,
+inverter,Energyhouse,Tall Tubular,,,,36,energyhouse-tall-tubular.webp,yes,,3,
+car,Epic Power,Automotive,,,,,epic-power-automotive.webp,yes,,4,
