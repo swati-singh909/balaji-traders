@@ -39,7 +39,7 @@ export default function Product({ slug }) {
   const message = useMemo(() => {
     if (!product) return '';
     const lines = [`Hi ${settings.shop_name}, I want to order:`, `• ${product.name}`];
-    if (variant?.ah) lines.push(`• Capacity: ${variant.ah} Ah`);
+    if (product.subtitle) lines.push(`• Type: ${product.subtitle}`);
     if (shownPrice !== null && shownPrice !== undefined) lines.push(`• Price on website: ${formatPrice(shownPrice)}`);
     lines.push(`• Old battery exchange: ${exchange ? 'Yes' : 'No'}`);
     lines.push(`• ${atHome ? 'Fitting at my place' : 'I will collect from shop'}`);
@@ -67,7 +67,7 @@ export default function Product({ slug }) {
   }
 
   const waHref = whatsappLink(settings.whatsapp_number, message);
-  const hasSizes = product.variants.some((v) => v.ah);
+  const hasSizes = product.variants.length > 1;
 
   return (
     <>
@@ -87,6 +87,7 @@ export default function Product({ slug }) {
           </div>
 
           <div className="chips">
+            {product.subtitle && <span className="chip chip--soft">{product.subtitle}</span>}
             {variant?.warranty && <span className="chip chip--soft">{variant.warranty} months warranty</span>}
             {product.note && <span className="chip chip--soft">{product.note}</span>}
           </div>

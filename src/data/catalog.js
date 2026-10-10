@@ -5,7 +5,7 @@ import {
   DEFAULT_SETTINGS,
 } from '../config.js';
 
-const CACHE_KEY = 'bt_catalog_v1';
+const CACHE_KEY = 'bt_catalog_v2';
 
 export function slugify(text) {
   return String(text)
@@ -46,8 +46,8 @@ async function fetchCsv(url) {
   return parsed.data;
 }
 
-// One sheet row = one battery size. Rows with the same brand + model are
-// grouped into one product with several Ah options.
+// One sheet row = one battery card, named by brand + Ah, e.g. "Epic Power 200 Ah".
+// Rows without an Ah are named by brand + model instead.
 export function buildProducts(rows) {
   const groups = new Map();
   rows.forEach((row, index) => {
@@ -58,13 +58,15 @@ export function buildProducts(rows) {
     const showValue = String(row.show ?? '').trim();
     if (showValue && !yes(showValue)) return;
 
-    const slug = slugify(`${brand} ${model}`);
+    const ah = toNumber(row.ah);
+    const slug = slugify(`${brand} ${model} ${ah ?? ''}`);
     if (!groups.has(slug)) {
       groups.set(slug, {
         slug,
         brand,
         model,
-        name: [brand, model].filter(Boolean).join(' '),
+        name: ah ? `${brand || model} ${ah} Ah` : [brand, model].filter(Boolean).join(' '),
+        subtitle: ah && brand ? model : '',
         category,
         image: imageUrl(row.image),
         highlight: false,
@@ -79,7 +81,7 @@ export function buildProducts(rows) {
     if (!group.note && row.note) group.note = String(row.note).trim();
 
     group.variants.push({
-      ah: toNumber(row.ah),
+      ah,
       price: toNumber(row.price),
       exchangePrice: toNumber(row.exchange_price),
       warranty: toNumber(row.warranty_months),

@@ -39,8 +39,9 @@ Create a Google Sheet with two tabs. Start from the sample files in
 | `sort` | order in the list, smaller first (optional) | `1` |
 | `note` | short extra line on the details page (optional) | `Best for 2 BHK` |
 
-Rows with the same **brand + model** become one card with Ah buttons, for example
-150 / 180 / 200 / 260 / 300 Ah. Leave `price` empty to show "Price on WhatsApp".
+Each row is its own card, named by brand + Ah: `Epic Power` + `200` shows as
+**Epic Power 200 Ah**, with the model as a small line under it. A row without
+an `ah` shows as brand + model. Leave `price` empty to show "Price on WhatsApp".
 
 ### Tab `settings`: two columns, `key` and `value`
 

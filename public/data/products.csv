@@ -5,5 +5,6 @@ inverter,Epic Power,Tall Tubular,200,13000,,,epic-power-tall-tubular.webp,yes,ye
 inverter,Epic Power,Tall Tubular,260,14000,,,epic-power-tall-tubular.webp,yes,yes,1,
 inverter,Epic Power,Tall Tubular,300,14500,,,epic-power-tall-tubular.webp,yes,yes,1,
 inverter,Enerziq,EQ-22060TT Tall Tubular,,,,60,enerziq-tall-tubular.webp,yes,,2,
-inverter,Energyhouse,Tall Tubular,,,,36,energyhouse-tall-tubular.webp,yes,,3,
+inverter,Energyhouse,Tall Tubular,200,,,36,energyhouse-tall-tubular.webp,yes,,3,
+inverter,Energyhouse,Tall Tubular,300,,,36,energyhouse-tall-tubular.webp,yes,,3,
 car,Epic Power,Automotive,,,,,epic-power-automotive.webp,yes,,4,

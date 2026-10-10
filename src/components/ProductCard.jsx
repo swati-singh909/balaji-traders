@@ -5,7 +5,7 @@ import { CATEGORIES } from '../config.js';
 
 export function specLine(product) {
   const parts = [];
-  if (product.ahs.length === 1) parts.push(`${product.ahs[0]} Ah`);
+  if (product.subtitle) parts.push(product.subtitle);
   if (product.ahs.length > 1) parts.push(`${product.ahs[0]}–${product.ahs[product.ahs.length - 1]} Ah`);
   if (product.warranty) parts.push(`${product.warranty} months warranty`);
   return parts.join(' · ');
